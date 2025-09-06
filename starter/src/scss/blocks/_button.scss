@@ -1,0 +1,15 @@
+@use '../utils/utils' as utils;
+
+.button {
+    background-color: utils.$primary-color;
+    color: utils.$font-color;
+    padding: 15px;
+    margin: 2rem;
+    border-radius: 12px;
+    border: 1px solid utils.$font-color;
+}
+
+.button:hover {
+    background-color: utils.$secondary-color;
+    cursor: pointer;
+}

@@ -1,0 +1,48 @@
+@use '../utils/utils' as utils;
+
+$navbar-padding: 20px;
+$navbar-padding-shrink: 8px;
+
+.navbar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: $navbar-padding 0;
+    background-color: utils.$navbar-color;
+    overflow: hidden;
+    color: white;
+    transition: padding 0.3s, background-color 0.3s;
+
+    &--shrink {
+        padding: $navbar-padding-shrink 0;
+        background-color: utils.$navbar-shrink-color;
+    }
+
+    &__menu{
+        display: flex;
+        list-style: none;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            margin-left: 2rem;
+            
+            a {
+                display: block;
+                text-align: center;
+                padding: 12px 10px;
+                color: white;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            a:hover {
+                color:antiquewhite;
+            }
+        }
+    }
+}
