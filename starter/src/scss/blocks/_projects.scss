@@ -17,6 +17,14 @@
         max-width: utils.$max-width;
         margin: 0 auto;
     }
+    &__more {
+        margin-top: utils.$spacing-xl;
+        text-align: center;
+
+        .button{
+            display: inline-block;
+        }
+    }
 }
 
 .project-card {
