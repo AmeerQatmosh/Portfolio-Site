@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <link rel="stylesheet" href="../dist/main.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,88 +15,81 @@
 
   <body id="body">
     <header class="header">
-      <nav class="navbar navbar--shrink">
+      <nav class="navbar navbar--shrink" aria-label="Main navigation">
         <ul class="navbar__menu">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#latest-projects">Projects</a>
-          </li>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#resume">Resume</a>
-          </li>
-          <li>
-            <a href="#contact">Contact Links</a>
-          </li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#latest-projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact Links</a></li>
         </ul>
       </nav>
     </header>
     <main id="main">
-      <section class="intro-banner">
-        <section id="background-section" class="background-section">
-          <img
-            src="./img/coding.jpg"
-            class="background-img"
-            alt="a lines of code in editor or IDE"
-          />
-        </section>
-
-        <section id="bio" class="bio">
-          <h1>Ameer Qatmosh's Web Development Portfolio</h1>
-          <img
-            src="./img/profile-picture.jpg"
-            class="profile-picture"
-            alt="a profile picture"
-          />
-          <p>
-            My name is Ameer Qatmosh, I have a Bachelor's Degree in Computer
-            Science from An-Najah National University.
-          </p>
-        </section>
+      <section
+        class="intro-banner"
+        aria-label="Banner with coding background image"
+      >
+        <div class="intro-banner__overlay">
+          <section id="bio" class="bio">
+            <img
+              src="./img/profile-picture.jpg"
+              class="bio__image"
+              alt="a profile picture"
+            />
+            <div class="bio__content">
+              <h1 class="bio__title">
+                Ameer Qatmosh's Web Development Portfolio
+              </h1>
+              <p class="bio__description">
+                My name is Ameer Qatmosh, I am passionate about learning web development.
+              </p>
+              <div class="bio__buttons">
+                <button class="button button--primary">Contact Me</button>
+                <button class="button button-secondary">Projects</button>
+              </div>
+            </div>
+          </section>
+        </div>
       </section>
 
       <section id="latest-projects" class="latest-projects">
-        <h2>Latest Projects</h2>
-        <section>
-          <div class="project__card">
+        <h2 class="latest-projects__title">Latest Projects</h2>
+        <div class="latest-projects__grid">
+          <div class="project-card">
             <img
               src="./img/Calculator.png"
-              class="project-cover"
+              class="project-card__image"
               alt="background image showing a sea or ocean with plateau"
             />
-            <h3>Calculator</h3>
-            <p>This is description</p>
-            <a class="button">More Info</a>
+            <h3 class="project-card__title">Calculator</h3>
+            <p class="project-card__description">This is description</p>
+            <button class="button">More Info</button>
           </div>
-          <div class="project__card">
+          <div class="project-card">
             <img
               src="./img/Formify.png"
-              class="project-cover"
+              class="project-card__image"
               alt="background image showing a sea or ocean with plateau"
             />
-            <h3>Formify</h3>
-            <p>This is description</p>
-            <a class="button">More Info</a>
+            <h3 class="project-card__title">Formify</h3>
+            <p class="project-card__description">This is description</p>
+            <button class="button">More Info</button>
           </div>
-          <div class="project__card">
+          <div class="project-card">
             <img
               src="./img/SMS.png"
-              class="project-cover"
+              class="project-card__image"
               alt="background image showing a sea or ocean with plateau"
             />
-            <h3>School Management System</h3>
-            <p>This is description</p>
-            <a class="button">More Info</a>
+            <h3 class="project-card__title">School Management System</h3>
+            <p class="project-card__description">This is description</p>
+            <button class="button">More Info</button>
           </div>
-        </section>
-        <!-- <a href="#projects" class="button">Go to Projects</a> -->
+        </div>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <p>&copy; Ameer Qatmosh 2025</p>
     </footer>
     <script src="script/script.js"></script>
