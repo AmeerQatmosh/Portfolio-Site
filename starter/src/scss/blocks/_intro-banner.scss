@@ -1,59 +1,83 @@
+@use "../utils/utils" as utils;
+
 .intro-banner {
-    background: url("../src/img/coding.jpg") center/cover no-repeat;
-    padding: 4rem 1rem;
-    color: white;
+  background: url("../src/img/coding.jpg") center/cover no-repeat;
+  padding: utils.$spacing-xxl utils.$spacing-md;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInBanner 1s forwards;
 
-    &__overlay {
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 2rem;
+  &__overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: utils.$spacing-xl;
+  }
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.bio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: utils.$max-width;
+  margin: 0 auto;
+  gap: utils.$spacing-xl;
+
+  &__image {
+    flex: 0 0 150px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  &__title {
+    font-size: utils.$spacing-xl;
+    margin-bottom: utils.$spacing-md;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInBanner 0.8s forwards;
+    animation-delay: 0.2s;
+  }
+
+  &__description {
+    font-size: 1.1rem;
+    margin-bottom: utils.$spacing-lg;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInBanner 0.8s forwards;
+    animation-delay: 0.4s;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: utils.$spacing-md;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInBanner 0.8s forwards;
+    animation-delay: 0.6s;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    &__buttons {
+      justify-content: center;
+      flex-wrap: wrap;
     }
+  }
+}
 
-    .bio {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        gap: 2rem;
 
-        &__image {
-            flex: 0 0 150px;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        &__content {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        &__title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        &__description {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        &__buttons {
-            display: flex;
-            gap: 1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .bio {
-            flex-direction: column;
-            text-align: center;
-
-            &__buttons {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-        }
-    }
+@keyframes fadeInBanner {
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

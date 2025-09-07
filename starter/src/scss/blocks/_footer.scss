@@ -5,11 +5,12 @@
     width: 100%;
     max-width: 100vw;
     overflow-x:hidden;
-    padding: 2rem 1rem;
+    padding: utils.$spacing-xl utils.$spacing-md;
     box-sizing: border-box;
     background-color: utils.$secondary-color;
     color: utils.$font-color;
     font-size: 0.9rem;
+    text-align: center;
 
     p {
         word-wrap: break-word;
@@ -17,19 +18,14 @@
         white-space: normal;
         margin: 0;
         max-width: 100%;
-        text-align: center;
     }
 
     @media (max-width: 520px){
-        .footer {
-            padding: 1rem 0.5rem;
+            padding: utils.$spacing-md utils.$spacing-sm;
             font-size: 0.8rem;
-        }
     }
     
     @media (max-width: 320px){
-        .footer {
             font-size: 0.75rem;
-        }
     }
 }

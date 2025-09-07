@@ -1,7 +1,7 @@
 @use "../utils/utils" as utils;
 
-$navbar-padding: 1.25rem;
-$navbar-padding-shrink: 0.5rem;
+$navbar-padding: utils.$spacing-lg;
+$navbar-padding-shrink: utils.$spacing-sm;
 
 .navbar {
   width: 100%;
@@ -22,7 +22,7 @@ $navbar-padding-shrink: 0.5rem;
 
   &__menu {
     display: flex;
-    gap: 2rem;
+    gap: utils.$spacing-xl;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -30,7 +30,7 @@ $navbar-padding-shrink: 0.5rem;
     li {
       a {
         display: block;
-        padding: 0.75rem 1rem;
+        padding: 0.75rem utils.$spacing-md;
         color: white;
         text-decoration: none;
         text-align: center;
@@ -53,7 +53,7 @@ $navbar-padding-shrink: 0.5rem;
       &__menu {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: utils.$spacing-md;
         width: 100%;
       }
     }
