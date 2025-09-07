@@ -157,6 +157,13 @@ a:hover, a:focus {
   max-width: 1200px;
   margin: 0 auto;
 }
+.latest-projects__more {
+  margin-top: 2rem;
+  text-align: center;
+}
+.latest-projects__more .button {
+  display: inline-block;
+}
 
 .project-card {
   background: white;
