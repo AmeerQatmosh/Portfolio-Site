@@ -1,0 +1,24 @@
+@use "../utils/utils" as utils;
+#main {
+  position: relative;
+  overflow-x: hidden;
+  grid-area: main;
+  padding: 0 10px;
+
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 2px;
+  background: utils.$primary-color;
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 10000;
+  transition: top 0.3s ease;
+  text-decoration: none;
+
+  &:focus {
+    top: 0;
+  }
+}

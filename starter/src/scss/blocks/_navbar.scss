@@ -1,48 +1,61 @@
-@use '../utils/utils' as utils;
+@use "../utils/utils" as utils;
 
-$navbar-padding: 20px;
-$navbar-padding-shrink: 8px;
+$navbar-padding: utils.$spacing-lg;
+$navbar-padding-shrink: utils.$spacing-sm;
 
 .navbar {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: $navbar-padding 0;
+  background-color: utils.$navbar-color;
+  color: white;
+  overflow: hidden;
+  transition: padding 0.3s, background-color 0.3s;
+
+  &--shrink {
+    padding: $navbar-padding-shrink 0;
+    background-color: utils.$navbar-shrink-color;
+  }
+
+  &__menu {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: $navbar-padding 0;
-    background-color: utils.$navbar-color;
-    overflow: hidden;
-    color: white;
-    transition: padding 0.3s, background-color 0.3s;
+    gap: utils.$spacing-xl;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-    &--shrink {
-        padding: $navbar-padding-shrink 0;
-        background-color: utils.$navbar-shrink-color;
+    li {
+      a {
+        display: block;
+        padding: 0.75rem utils.$spacing-md;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        transition: color 0.3s ease;
+        cursor: pointer;
+      }
+      &:hover,
+      a:focus {
+        color: antiquewhite;
+        outline: 2px solid utils.$primary-color;
+        outline-offset: 2px;
+      }
     }
+  }
 
-    &__menu{
-        display: flex;
-        list-style: none;
-        gap: 10px;
-        margin: 0;
-        padding: 0;
+  @media (max-width: 600px) {
+    .navbar {
+      flex-direction: column;
 
-        li {
-            display: inline-block;
-            margin-left: 2rem;
-            
-            a {
-                display: block;
-                text-align: center;
-                padding: 12px 10px;
-                color: white;
-                text-decoration: none;
-                cursor: pointer;
-            }
-            a:hover {
-                color:antiquewhite;
-            }
-        }
+      &__menu {
+        flex-direction: column;
+        align-items: center;
+        gap: utils.$spacing-md;
+        width: 100%;
+      }
     }
+  }
 }

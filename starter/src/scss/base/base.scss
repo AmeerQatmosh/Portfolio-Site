@@ -1,1 +1,32 @@
 @use "resets";
+@use "layout";
+@use "../utils/utils" as utils;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+body {
+  font-family: utils.$font-family;
+  background-color: utils.$bg-color;
+  color: utils.$text-color;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  color: utils.$primary-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    outline: 2px solid utils.$primary-color;
+    outline-offset: 2px;
+  }
+}
