@@ -14,7 +14,7 @@ $navbar-padding-shrink: utils.$spacing-sm;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: $navbar-padding 1rem;
+  padding: $navbar-padding utils.$spacing-md;
   background-color: utils.$navbar-color;
   color: #fff;
   overflow: hidden;
@@ -24,15 +24,15 @@ $navbar-padding-shrink: utils.$spacing-sm;
   z-index: 1000;
 
   &--shrink {
-    padding: $navbar-padding-shrink 0.5rem;
+    padding: $navbar-padding-shrink utils.$spacing-sm;
     background-color: utils.$navbar-shrink-color;
   }
 
   &__logo {
     color: #fff;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
+    padding: utils.$spacing-sm utils.$spacing-md;
+    margin: 0 utils.$spacing-sm;
 
     &:hover,
     &:focus {
@@ -71,8 +71,8 @@ $navbar-padding-shrink: utils.$spacing-sm;
     background: none;
     border: none;
     color: #fff;
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
+    font-size: utils.$spacing-lg;
+    padding: utils.$spacing-sm utils.$spacing-md;
     cursor: pointer;
 
     &:focus {
@@ -83,7 +83,7 @@ $navbar-padding-shrink: utils.$spacing-sm;
   @include utils.respond(mobile) {
     &__toggle {
       display: block;
-      margin-left: 0 0.5rem;
+      margin-left: 0 utils.$spacing-sm;
     }
 
     &__menu {
@@ -91,18 +91,18 @@ $navbar-padding-shrink: utils.$spacing-sm;
       flex-direction: column;
       align-items: flex-start;
       width: 100%;
-      gap: 1rem;
+      gap: utils.$spacing-md;
       order: 3;
 
       max-height: 0;
       overflow: hidden;
-      padding: 0 1rem;
+      padding: 0 utils.$spacing-md;
       transition: max-height 0.3s ease, padding 0.3s ease;
 
       &.active {
         display: flex;
         max-height: 500px;
-        padding: 1rem;
+        padding: utils.$spacing-md;
       }
 
       li {
@@ -115,4 +115,21 @@ $navbar-padding-shrink: utils.$spacing-sm;
       }
     }
   }
+
+  @media (max-width: 350px) {
+  .navbar__menu {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .navbar__menu a {
+    font-size: 0.875rem; // 14px
+    padding: 0.5rem;
+  }
+
+  .navbar__logo {
+    font-size: 1rem;
+  }
+}
+
 }

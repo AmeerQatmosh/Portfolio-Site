@@ -1,13 +1,13 @@
 @use "../utils/utils" as utils;
 .resume {
-    padding: 4rem 1rem;
+    padding: utils.$spacing-xxl utils.$spacing-md;
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
 
     &__title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
+        font-size: utils.$spacing-xl;
+        margin-bottom: utils.$spacing-xl;
         color: utils.$primary-color;
     }
 
