@@ -1,7 +1,11 @@
 @use "../utils/utils" as utils;
 @use "header";
-@use "intro-banner";
-@use "projects";
-@use "footer";
-@use "button";
 @use "navbar";
+@use "intro-banner";
+@use "button";
+@use "projects";
+@use "projects-page";
+@use "skills";
+@use "contact";
+@use "resume";
+@use "footer";
