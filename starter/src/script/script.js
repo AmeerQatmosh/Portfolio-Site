@@ -1,24 +1,74 @@
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('navbar--shrink');
-  } else {
-    navbar.classList.remove('navbar--shrink');
+async function loadPatials(containerId, file) {
+  const host = document.getElementById(containerId);
+  if (!host) return;
+  try {
+    const res = await fetch(file);
+    const html = await res.text();
+    host.innerHTML = html;
+  } catch(err){
+    console.log('Failed to load partials:', file, err);
   }
+}
+
+
+function initNavbar() {
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) {
+    console.warn('initNavbar: .navbar not found!');
+    return;
+  }
+
+  const onScroll = () => {
+    navbar.classList.toggle('navbar--shrink', window.scrollY > 50);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const toggle = navbar.querySelector('.navbar__toggle');
+  const menu = navbar.querySelector('.navbar__menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('active');
+      navbar.classList.toggle('menu-active', !expanded);
+    });
+
+    menu.addEventListener('click', (e) => {
+      if(e.target.tagName === 'A' && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 600 && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false')
+      }
+    });
+  } else {
+    console.warn('initNavbar: toggle or menu not found', {toggle, menu});
+  }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+  await Promise.all([
+    loadPatials("header", "partials/header.html"),
+    loadPatials("footer", "partials/footer.html"),
+  ]);
+
+  initNavbar();
 });
 
 
-function loadPatials(containerId, file){
-  fetch(file)
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById(containerId).innerHTML = data;
-    })
-    .catch(err => console.error("Loading partials error:", file, err));
-}
-
-document.addEventListener("DOMContentLoaded",() => {
-  loadPatials("header", "partials/header.html");
-  loadPatials("footer", "partials/footer.html");
-})

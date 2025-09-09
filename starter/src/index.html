@@ -16,8 +16,8 @@
 
   <body id="body">
     <a href="#main" class="skip-link">Skip to content</a>
-    <!-- <div id="header"></div> -->
-    <header class="header">
+    <header id="header" class="header"></header>
+    <!-- <header class="header">
       <nav class="navbar navbar--shrink" aria-label="Main navigation">
         <ul class="navbar__menu">
           <li><a href="#">Home</a></li>
@@ -27,7 +27,7 @@
           <li><a href="#contact">Contact Links</a></li>
         </ul>
       </nav>
-    </header>
+    </header> -->
     <main id="main">
       <section
         class="intro-banner"
@@ -49,8 +49,8 @@
                 development.
               </p>
               <div class="bio__buttons">
-                <button class="button">Contact Me</button>
-                <button class="button button-secondary">Projects</button>
+                <button class="button" onclick="window.location.href='contact.html'">Contact Me</button>
+                <button class="button button-secondary" onclick="window.location.href='projects.html'">Projects</button>
               </div>
             </div>
           </section>
@@ -62,6 +62,21 @@
         <div class="latest-projects__grid">
           <div class="project-card">
             <img
+              src="./img/StarLens.png"
+              class="project-card__image"
+              alt="a screenshot for StarLens UI"
+            />
+            <h3 class="project-card__title">StarLens</h3>
+            <p class="project-card__description">
+              StarLens, a Landing Page Project.
+            </p>
+            <div>
+              <button class="button" onclick="window.open('https://ameerqatmosh.github.io/StarLens/','_blank','noopener')">See Live</button>
+              <button class="button" onclick="window.open('https://github.com/AmeerQatmosh/StarLens','_blank','noopener')">Source Code</button>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
               src="./img/Calculator.png"
               class="project-card__image"
               alt="a screenshot for Calculator UI"
@@ -70,7 +85,10 @@
             <p class="project-card__description">
               Resonsive, user-freindly calculator app.
             </p>
-            <button class="button">More Info</button>
+            <div>
+              <button class="button" onclick="window.open('https://ameerqatmosh.github.io/simple-react-app-calculator/','_blank','noopener')">See Live</button>
+              <button class="button" onclick="window.open('https://github.com/AmeerQatmosh/simple-react-app-calculator','_blank','noopener')">Source Code</button>
+            </div>
           </div>
           <div class="project-card">
             <img
@@ -82,33 +100,23 @@
             <p class="project-card__description">
               Resonsive, user-freindly form generator app.
             </p>
-            <button class="button">More Info</button>
-          </div>
-          <div class="project-card">
-            <img
-              src="./img/SMS.png"
-              class="project-card__image"
-              alt="a screenshot for System Management System UI"
-            />
-            <h3 class="project-card__title">School Management System</h3>
-            <p class="project-card__description">
-              School Management System, Simple form application, to fill
-              Students Marks Info.
-            </p>
-            <button class="button">More Info</button>
+            <div>
+              <button class="button" onclick="window.open('https://ameerqatmosh.github.io/formify/','_blank','noopener')">See Live</button>
+              <button class="button" onclick="window.open('https://github.com/AmeerQatmosh/formify','_blank','noopener')">Source Code</button>
+            </div>
           </div>
         </div>
         <div class="latest-projects__more">
-          <a href="./pages/projects.html" class="button button--primary">
+          <a href="./projects.html" class="button button--primary">
             See more Projects</a
           >
         </div>
       </section>
     </main>
-    <!-- <div id="footer"></div> -->
-    <footer class="footer">
+    <footer id="footer" class="footer"></footer>
+    <!-- <footer class="footer">
       <p>&copy; Ameer Qatmosh 2025</p>
-    </footer>
-    <script src="script/script.js"></script>
+    </footer> -->
+    <script src="script/script.js" defer></script>
   </body>
 </html>

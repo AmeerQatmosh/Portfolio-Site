@@ -7,17 +7,33 @@ $navbar-padding-shrink: utils.$spacing-sm;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  padding: $navbar-padding 0;
+  padding: $navbar-padding 1rem;
   background-color: utils.$navbar-color;
-  color: white;
+  color: #fff;
   overflow: hidden;
-  transition: padding 0.3s, background-color 0.3s;
+  transition: padding 0.25s ease, background-color 0.25s ease;
+  position: relative;
+  top: 0;
+  z-index: 1000;
 
   &--shrink {
     padding: $navbar-padding-shrink 0;
     background-color: utils.$navbar-shrink-color;
+  }
+
+  &__home {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+
+    &:hover,
+    &:focus {
+      color:antiquewhite;
+      outline: 2px solid utils.$primary-color;
+      outline-offset: 2px;
+    }
   }
 
   &__menu {
@@ -45,17 +61,67 @@ $navbar-padding-shrink: utils.$spacing-sm;
       }
     }
   }
+  
 
-  @media (max-width: 600px) {
-    .navbar {
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    // padding: 0.5rem;
+    cursor: pointer;
+
+    &:focus {
+      outline: 2px solid utils.$primary-color;
+      outline-offset: 2px;
+    }
+  }
+
+  @media (max-width: 600px) { 
+    flex-wrap: wrap;
+    align-items: center;
+
+    &__home {
+      order: 1;
+      flex: 0 0 auto;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    &__toggle {
+      display: block;
+      order: 2;
+      margin-left: auto;
+    }
+
+    &__menu { 
+      display: none;
+      order: 3;
       flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: 1rem;
+      padding: 1rem;
 
-      &__menu {
-        flex-direction: column;
-        align-items: center;
-        gap: utils.$spacing-md;
+      &.active {
+        display: flex;
+      }
+
+      li {
         width: 100%;
       }
+
+      a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    &__menu.active ~ .navbar__home,
+    &.menu-active .navbar__home {
+      flex: 1 0 100%;
+      text-align: center;
     }
   }
 }
