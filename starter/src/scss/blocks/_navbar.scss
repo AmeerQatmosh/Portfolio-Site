@@ -4,33 +4,40 @@ $navbar-padding: utils.$spacing-lg;
 $navbar-padding-shrink: utils.$spacing-sm;
 
 .navbar {
+  @include utils.respond(mobile) {
+    flex-direction: row;
+  }
+  @include utils.flex-center(row);
+  
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: $navbar-padding 1rem;
   background-color: utils.$navbar-color;
   color: #fff;
   overflow: hidden;
   transition: padding 0.25s ease, background-color 0.25s ease;
-  position: relative;
+  position: sticky;
   top: 0;
   z-index: 1000;
 
   &--shrink {
-    padding: $navbar-padding-shrink 0;
+    padding: $navbar-padding-shrink 0.5rem;
     background-color: utils.$navbar-shrink-color;
   }
 
-  &__home {
+  &__logo {
     color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
 
     &:hover,
     &:focus {
-      color:antiquewhite;
+      color: antiquewhite;
+      @include utils.focus-outline(utils.$primary-color);
       outline: 2px solid utils.$primary-color;
       outline-offset: 2px;
     }
@@ -43,25 +50,21 @@ $navbar-padding-shrink: utils.$spacing-sm;
     margin: 0;
     padding: 0;
 
-    li {
-      a {
-        display: block;
-        padding: 0.75rem utils.$spacing-md;
-        color: white;
-        text-decoration: none;
-        text-align: center;
-        transition: color 0.3s ease;
-        cursor: pointer;
-      }
+    li a {
+      display: block;
+      padding: 0.75rem utils.$spacing-md;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      cursor: pointer;
+
       &:hover,
       a:focus {
         color: antiquewhite;
-        outline: 2px solid utils.$primary-color;
-        outline-offset: 2px;
+        @include utils.focus-outline(utils.$primary-color);
       }
     }
   }
-  
 
   &__toggle {
     display: none;
@@ -69,43 +72,37 @@ $navbar-padding-shrink: utils.$spacing-sm;
     border: none;
     color: #fff;
     font-size: 1.5rem;
-    // padding: 0.5rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
 
     &:focus {
-      outline: 2px solid utils.$primary-color;
-      outline-offset: 2px;
+      @include utils.focus-outline(utils.$primary-color);
     }
   }
 
-  @media (max-width: 600px) { 
-    flex-wrap: wrap;
-    align-items: center;
-
-    &__home {
-      order: 1;
-      flex: 0 0 auto;
-      width: 100%;
-      transition: all 0.3s ease;
-    }
-    
+  @include utils.respond(mobile) {
     &__toggle {
       display: block;
-      order: 2;
-      margin-left: auto;
+      margin-left: 0 0.5rem;
     }
 
-    &__menu { 
+    &__menu {
       display: none;
-      order: 3;
       flex-direction: column;
       align-items: flex-start;
       width: 100%;
       gap: 1rem;
-      padding: 1rem;
+      order: 3;
+
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1rem;
+      transition: max-height 0.3s ease, padding 0.3s ease;
 
       &.active {
         display: flex;
+        max-height: 500px;
+        padding: 1rem;
       }
 
       li {
@@ -116,12 +113,6 @@ $navbar-padding-shrink: utils.$spacing-sm;
         width: 100%;
         text-align: center;
       }
-    }
-
-    &__menu.active ~ .navbar__home,
-    &.menu-active .navbar__home {
-      flex: 1 0 100%;
-      text-align: center;
     }
   }
 }

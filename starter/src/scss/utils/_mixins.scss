@@ -1,13 +1,46 @@
-@mixin respond-to($breakpoint) {
-    @if $breakpoint == small {
+@mixin respond($breakpoint) {
+    @if $breakpoint == mobile {
         @media (max-width: 600px){
             @content;
         }
     }
-    @else if $breakpoint == medium {
+    @else if $breakpoint == tablet {
         @media (max-width: 900px){
+            @content;
+        }
+    }
+    @else if $breakpoint == desktop {
+        @media (max-width: 901px){
             @content;
         }
     }
 }
 
+@mixin flex-center($direction: row, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+    gap: $gap;
+}
+
+@mixin button-base($background) {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: $background 0.3s ease;
+}
+
+@mixin focus-outline($color) {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+}
+
+
+@mixin border-shadow($color){
+    border: 1px solid $color;
+    border-radius: 8px;
+}

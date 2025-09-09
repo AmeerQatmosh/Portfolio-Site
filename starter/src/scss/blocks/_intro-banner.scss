@@ -9,8 +9,9 @@
   animation: fadeInBanner 1s forwards;
 
   &__overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: utils.$spacing-xl;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: contrast(70%) blur(2px);
+    padding: utils.$spacing-xxl;
   }
   @media (max-width: 768px) {
     text-align: center;

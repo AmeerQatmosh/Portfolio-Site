@@ -10,14 +10,14 @@
   position: relative;
   overflow-x: hidden;
   grid-area: main;
-  padding: 0 10px;
+  padding: 0;
 }
 
 .skip-link {
   position: absolute;
   top: -40px;
   left: 2px;
-  background: #0077cc;
+  background: #067687;
   color: white;
   padding: 0.5rem 1rem;
   z-index: 10000;
@@ -45,11 +45,11 @@ body {
 }
 
 a {
-  color: #0077cc;
+  color: #067687;
   text-decoration: none;
 }
 a:hover, a:focus {
-  outline: 2px solid #0077cc;
+  outline: 2px solid #067687;
   outline-offset: 2px;
 }
 
@@ -61,33 +61,46 @@ a:hover, a:focus {
   background: transparent;
 }
 
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: row;
+  }
+}
 .navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 1.5rem 1rem;
   background-color: rgb(13, 64, 70);
   color: #fff;
   overflow: hidden;
   transition: padding 0.25s ease, background-color 0.25s ease;
-  position: relative;
+  position: sticky;
   top: 0;
   z-index: 1000;
 }
 .navbar--shrink {
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
   background-color: rgb(11, 47, 51);
 }
-.navbar__home {
+.navbar__logo {
   color: #fff;
   text-decoration: none;
   padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
 }
-.navbar__home:hover, .navbar__home:focus {
+.navbar__logo:hover, .navbar__logo:focus {
   color: antiquewhite;
-  outline: 2px solid #0077cc;
+  outline: 2px solid #067687;
+  outline-offset: 2px;
+  outline: 2px solid #067687;
   outline-offset: 2px;
 }
 .navbar__menu {
@@ -100,16 +113,15 @@ a:hover, a:focus {
 .navbar__menu li a {
   display: block;
   padding: 0.75rem 1rem;
-  color: white;
+  color: #fff;
   text-decoration: none;
-  text-align: center;
   transition: color 0.3s ease;
   cursor: pointer;
 }
-.navbar__menu li:hover,
-.navbar__menu li a:focus {
+.navbar__menu li a:hover,
+.navbar__menu li a a:focus {
   color: antiquewhite;
-  outline: 2px solid #0077cc;
+  outline: 2px solid #067687;
   outline-offset: 2px;
 }
 .navbar__toggle {
@@ -118,49 +130,40 @@ a:hover, a:focus {
   border: none;
   color: #fff;
   font-size: 1.5rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
 }
 .navbar__toggle:focus {
-  outline: 2px solid #0077cc;
+  outline: 2px solid #067687;
   outline-offset: 2px;
 }
 @media (max-width: 600px) {
-  .navbar {
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .navbar__home {
-    order: 1;
-    flex: 0 0 auto;
-    width: 100%;
-    transition: all 0.3s ease;
-  }
   .navbar__toggle {
     display: block;
-    order: 2;
-    margin-left: auto;
+    margin-left: 0 0.5rem;
   }
   .navbar__menu {
     display: none;
-    order: 3;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
     gap: 1rem;
-    padding: 1rem;
+    order: 3;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+    transition: max-height 0.3s ease, padding 0.3s ease;
   }
   .navbar__menu.active {
     display: flex;
+    max-height: 500px;
+    padding: 1rem;
   }
   .navbar__menu li {
     width: 100%;
   }
   .navbar__menu a {
     width: 100%;
-    text-align: center;
-  }
-  .navbar__menu.active ~ .navbar__home, .navbar.menu-active .navbar__home {
-    flex: 1 0 100%;
     text-align: center;
   }
 }
@@ -174,8 +177,9 @@ a:hover, a:focus {
   animation: fadeInBanner 1s forwards;
 }
 .intro-banner__overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: contrast(70%) blur(2px);
+  padding: 4rem;
 }
 @media (max-width: 768px) {
   .intro-banner {
@@ -243,6 +247,13 @@ a:hover, a:focus {
   }
 }
 .button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: rgb(13, 64, 70) 0.3s ease;
   background-color: rgb(13, 64, 70);
   color: rgb(246, 246, 255);
   padding: 0.75rem 1.5rem;
@@ -252,14 +263,14 @@ a:hover, a:focus {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .button:hover, .button:focus {
-  background-color: #0077cc;
+  background-color: #067687;
   cursor: pointer;
   outline: 2px solid rgb(13, 64, 70);
   outline-offset: 2px;
 }
 
 .button-secondary {
-  background-color: transparent;
+  background-color: black;
   color: rgb(246, 246, 255);
   border: 2px solid rgb(13, 64, 70);
 }
@@ -296,6 +307,7 @@ a:hover, a:focus {
 
 .project-card {
   background: white;
+  border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -306,6 +318,7 @@ a:hover, a:focus {
   transform: translateY(20px);
   animation: fadeInCard 0.6s forwards;
   animation-delay: 0.2s;
+  padding-bottom: 1rem;
 }
 .project-card:hover, .project-card:focus-within {
   transform: translateY(-5px);
@@ -332,7 +345,7 @@ a:hover, a:focus {
 @keyframes fadeInCard {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(10);
   }
 }
 .projects-page {
@@ -344,7 +357,7 @@ a:hover, a:focus {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #0077cc;
+  color: #067687;
 }
 .projects-page__grid {
   display: grid;
@@ -361,7 +374,12 @@ a:hover, a:focus {
 .skills__title {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #0077cc;
+  color: #067687;
+}
+.skills__heading {
+  margin: 2rem;
+  font-size: 2rem;
+  margin-bottom: 4rem;
 }
 .skills__list {
   display: flex;
@@ -382,9 +400,18 @@ a:hover, a:focus {
 .skills__item:hover {
   transform: translateY(-3px);
 }
+.skills__more {
+  margin-top: 2rem;
+  text-align: center;
+}
+.skills__more .button {
+  display: inline-block;
+}
 
 .contact {
   background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -396,7 +423,7 @@ a:hover, a:focus {
   text-align: center;
   font: 2rem;
   margin-bottom: 2rem;
-  color: #0077cc;
+  color: #067687;
 }
 .contact__form {
   display: flex;
@@ -404,24 +431,27 @@ a:hover, a:focus {
   gap: 1.5rem;
 }
 .contact__label {
+  font-size: 1rem;
   font-weight: bold;
   text-align: left;
 }
 .contact__input, .contact__textarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
   padding: 0.75rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
   font-size: 1rem;
   font-family: inherit;
   resize: vertical;
 }
 .contact__input:focus, .contact__textarea:focus {
-  border-color: #0077cc;
-  outline: 2px solid #0077cc;
+  border-color: #067687;
+  outline: 2px solid #067687;
   outline-offset: 2px;
 }
 .contact .button {
-  align-self: center;
+  width: 100%;
+  padding: 0.75rem;
 }
 
 .resume {
@@ -433,7 +463,7 @@ a:hover, a:focus {
 .resume__title {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #0077cc;
+  color: #067687;
 }
 .resume__viewer {
   width: 100%;
@@ -444,6 +474,11 @@ a:hover, a:focus {
 }
 
 .footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   grid-area: footer;
   width: 100%;
   max-width: 100vw;

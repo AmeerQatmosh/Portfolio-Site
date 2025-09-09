@@ -1,34 +1,49 @@
+@use "../utils/utils" as utils;
 .skills {
-    padding: 4rem 1rem;
-    max-width: 900px;
-    margin: 0 auto;
+  padding: 4rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: utils.$primary-color;
+  }
+
+  &__heading {
+    margin: 2rem;
+    font-size: utils.$spacing-xl;
+    margin-bottom: utils.$spacing-xxl;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    background-color: #f9f9f9;
+    @include utils.border-shadow(#ddd);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  &__more {
+    margin-top: utils.$spacing-xl;
     text-align: center;
 
-    &__title{
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        color: #0077cc;
+    .button {
+      display: inline-block;
     }
-
-    &__list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-        list-style: none;
-        padding: 0;
-    }
-
-    &__item {
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 1rem 2rem;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        transition: transform 0.2s ease;
-
-        &:hover {
-            transform: translateY(-3px);
-        }
-    }
+  }
 }
