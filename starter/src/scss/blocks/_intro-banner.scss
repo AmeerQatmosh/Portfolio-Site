@@ -1,7 +1,7 @@
 @use "../utils/utils" as utils;
 
 .intro-banner {
-  background: url("../src/img/coding.jpg") center/cover no-repeat;
+  background: url("../src/img/background.jpg") center/cover no-repeat;
   padding: utils.$spacing-xxl utils.$spacing-md;
   color: white;
   opacity: 0;

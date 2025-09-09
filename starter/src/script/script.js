@@ -18,8 +18,15 @@ function initNavbar() {
     return;
   }
 
+  let lastState = null;
+
   const onScroll = () => {
-    navbar.classList.toggle('navbar--shrink', window.scrollY > 50);
+    const shouldShrink = window.scrollY > 80; // add buffer
+    if (shouldShrink !== lastState) {
+      navbar.classList.toggle('navbar--shrink', shouldShrink);
+      lastState = shouldShrink;
+    }
+    // navbar.classList.toggle('navbar--shrink', window.scrollY > 50);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
