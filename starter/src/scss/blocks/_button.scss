@@ -1,6 +1,7 @@
 @use "../utils/utils" as utils;
 
 .button {
+  @include utils.button-base(utils.$secondary-color);
   background-color: utils.$secondary-color;
   color: utils.$font-color;
   padding: 0.75rem utils.$spacing-lg;
@@ -13,13 +14,12 @@
   &:focus {
     background-color: utils.$primary-color;
     cursor: pointer;
-    outline: 2px solid utils.$secondary-color;
-    outline-offset: 2px;
+    @include utils.focus-outline(utils.$secondary-color);
   }
 }
 
 .button-secondary {
-  background-color: transparent;
+  background-color: black;
   color: utils.$font-color;
   border: 2px solid utils.$secondary-color;
 
@@ -27,7 +27,6 @@
   &:focus-visible {
     background-color: utils.$secondary-color;
     cursor: pointer;
-    outline: 2px solid utils.$secondary-color;
-    outline-offset: 2px;
+    @include utils.focus-outline(utils.$secondary-color);
   }
 }

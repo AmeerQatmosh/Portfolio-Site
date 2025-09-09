@@ -1,5 +1,8 @@
+@use "../utils/utils" as utils;
+
 .contact {
     background: white;
+    @include utils.border-shadow(#ddd);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -10,7 +13,7 @@
         text-align: center;
         font: 2rem;
         margin-bottom: 2rem;
-        color: #0077cc;
+        color: utils.$primary-color;
     }
 
     &__form {
@@ -20,27 +23,28 @@
     }
 
     &__label {
+        font-size: utils.$spacing-md;
         font-weight: bold;
         text-align: left;
     }
 
     &__input,
     &__textarea {
+        @include utils.border-shadow(#ccc);
         padding: 0.75rem;
         border-radius: 8px;
-        border: 1px solid #ccc;
         font-size: 1rem;
         font-family: inherit;
         resize: vertical;
 
         &:focus {
-            border-color: #0077cc;
-            outline: 2px solid #0077cc;
-            outline-offset: 2px;
+            border-color: utils.$primary-color;
+            @include utils.focus-outline(utils.$primary-color);
         }
     }
 
     .button {
-        align-self: center;
+        width: 100%;
+        padding: 0.75rem;
     }
 }

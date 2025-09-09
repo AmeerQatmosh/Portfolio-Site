@@ -1,6 +1,7 @@
 @use '../utils/utils' as utils;
 
 .footer {
+    @include utils.flex-center(row, 1rem);
     grid-area: footer;
     width: 100%;
     max-width: 100vw;

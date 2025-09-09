@@ -1,3 +1,4 @@
+@use "../utils/utils" as utils;
 .resume {
     padding: 4rem 1rem;
     max-width: 900px;
@@ -7,7 +8,7 @@
     &__title {
         font-size: 2rem;
         margin-bottom: 2rem;
-        color: #0077cc;
+        color: utils.$primary-color;
     }
 
     &__viewer {

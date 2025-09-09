@@ -1,3 +1,4 @@
+@use "../utils/utils" as utils;
 .projects-page {
     padding: 4rem 1rem;
     max-width: 1200px;
@@ -7,7 +8,7 @@
         text-align: center;
         font-size: 2.5rem;
         margin-bottom: 3rem;
-        color: #0077cc;
+        color: utils.$primary-color;
     }
 
     &__grid {
