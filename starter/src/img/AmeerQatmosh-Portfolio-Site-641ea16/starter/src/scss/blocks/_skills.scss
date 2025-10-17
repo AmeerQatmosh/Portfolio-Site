@@ -1,0 +1,49 @@
+@use "../utils/utils" as utils;
+.skills {
+  padding: utils.$spacing-xxl utils.$spacing-md;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+
+  &__title {
+    font-size: utils.$spacing-xl;
+    margin-bottom: utils.$spacing-xl;
+    color: utils.$primary-color;
+  }
+
+  &__heading {
+    margin: utils.$spacing-xl;
+    font-size: utils.$spacing-xl;
+    margin-bottom: utils.$spacing-xxl;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: utils.$spacing-md;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    background-color: #f9f9f9;
+    @include utils.border-shadow(#ddd);
+    padding: utils.$spacing-md utils.$spacing-xl;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  &__more {
+    margin-top: utils.$spacing-xl;
+    text-align: center;
+
+    .button {
+      display: inline-block;
+    }
+  }
+}

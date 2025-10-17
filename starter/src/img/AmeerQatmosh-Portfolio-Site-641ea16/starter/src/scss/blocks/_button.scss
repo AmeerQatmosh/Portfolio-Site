@@ -1,0 +1,32 @@
+@use "../utils/utils" as utils;
+
+.button {
+  @include utils.button-base(utils.$secondary-color);
+  background-color: utils.$secondary-color;
+  color: utils.$font-color;
+  padding: 0.75rem utils.$spacing-lg;
+  margin: utils.$spacing-md 0;
+  border-radius: 0.75rem;
+  border: 1px solid utils.$font-color;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background-color: utils.$primary-color;
+    cursor: pointer;
+    @include utils.focus-outline(utils.$secondary-color);
+  }
+}
+
+.button-secondary {
+  background-color: black;
+  color: utils.$font-color;
+  border: 2px solid utils.$secondary-color;
+
+  &:hover,
+  &:focus-visible {
+    background-color: utils.$secondary-color;
+    cursor: pointer;
+    @include utils.focus-outline(utils.$secondary-color);
+  }
+}
