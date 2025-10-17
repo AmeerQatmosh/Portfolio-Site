@@ -1,0 +1,135 @@
+@use "../utils/utils" as utils;
+
+$navbar-padding: utils.$spacing-lg;
+$navbar-padding-shrink: utils.$spacing-sm;
+
+.navbar {
+  @include utils.respond(mobile) {
+    flex-direction: row;
+  }
+  @include utils.flex-center(row);
+  
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: $navbar-padding utils.$spacing-md;
+  background-color: utils.$navbar-color;
+  color: #fff;
+  overflow: hidden;
+  transition: padding 0.25s ease, background-color 0.25s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &--shrink {
+    padding: $navbar-padding-shrink utils.$spacing-sm;
+    background-color: utils.$navbar-shrink-color;
+  }
+
+  &__logo {
+    color: #fff;
+    text-decoration: none;
+    padding: utils.$spacing-sm utils.$spacing-md;
+    margin: 0 utils.$spacing-sm;
+
+    &:hover,
+    &:focus {
+      color: antiquewhite;
+      @include utils.focus-outline(utils.$primary-color);
+      outline: 2px solid utils.$primary-color;
+      outline-offset: 2px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: utils.$spacing-xl;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li a {
+      display: block;
+      padding: 0.75rem utils.$spacing-md;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      cursor: pointer;
+
+      &:hover,
+      a:focus {
+        color: antiquewhite;
+        @include utils.focus-outline(utils.$primary-color);
+      }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: utils.$spacing-lg;
+    padding: utils.$spacing-sm utils.$spacing-md;
+    cursor: pointer;
+
+    &:focus {
+      @include utils.focus-outline(utils.$primary-color);
+    }
+  }
+
+  @include utils.respond(mobile) {
+    &__toggle {
+      display: block;
+      margin-left: 0 utils.$spacing-sm;
+    }
+
+    &__menu {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: utils.$spacing-md;
+      order: 3;
+
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 utils.$spacing-md;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+
+      &.active {
+        display: flex;
+        max-height: 500px;
+        padding: utils.$spacing-md;
+      }
+
+      li {
+        width: 100%;
+      }
+
+      a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 350px) {
+  .navbar__menu {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .navbar__menu a {
+    font-size: 0.875rem; // 14px
+    padding: 0.5rem;
+  }
+
+  .navbar__logo {
+    font-size: 1rem;
+  }
+}
+
+}

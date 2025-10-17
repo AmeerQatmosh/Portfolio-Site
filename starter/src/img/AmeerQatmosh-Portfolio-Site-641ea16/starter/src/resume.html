@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Web Development portfolio" />
+    <title>Portfolio - Resume</title>
+    <link rel="stylesheet" href="../dist/main.css" />
+  </head>
+
+  <body>
+    <header id="header" class="header"></header>
+    <main id="main">
+        <section class="resume">
+            <h1 class="resume__title"> My Resume</h1>
+            <!-- <embed src="../docs/Ameer Qatmosh CV 2025.pdf" type="application/pdf" class="resume__viewer"> -->
+            <!-- <iframe src="../docs/Ameer Qatmosh CV 2025.pdf" class="resume__viewer"></iframe> -->
+             <object data="../docs/Ameer Qatmosh CV 2025.pdf" type="application/pdf" class="resume__viewer">
+                <p>Your browser doesn't support PDF viewing.
+                    <a href="../docs/Ameer Qatmosh CV 2025.pdf" target="_blank">Download my CV here</a>.
+                </p>
+             </object>
+        </section>
+    </main>
+
+    <footer id="footer" class="footer"></footer>
+    <script src="script/script.js" defer></script>
+  </body>
+</html>
